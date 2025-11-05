@@ -6,15 +6,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import com.example.practica_kt.ui.theme.Purple80
 import com.example.practica_kt.ui.components.componentsHome.CardList
+import com.example.practica_kt.ui.theme.BackgroundHome
 
 @Composable
 fun HomeScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Purple80),
+            .background(BackgroundHome),
         contentAlignment = Alignment.Center
     ) {
         CardList()

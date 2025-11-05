@@ -7,7 +7,8 @@ data class GameItem(
     val title: String,
     val desc: String,
     val poster: String,
-    val precio: Int
+    val precio: Int,
+    val categoria: String
 )
 
 fun parseJsonToList(json: String): List<GameItem> {
@@ -22,7 +23,8 @@ fun parseJsonToList(json: String): List<GameItem> {
                 title = obj.getString("title"),
                 desc = obj.getString("desc"),
                 poster = obj.getString("poster"),
-                precio = obj.getInt("precio")
+                precio = obj.getInt("precio"),
+                categoria = obj.getString("categoria")
             )
         )
     }

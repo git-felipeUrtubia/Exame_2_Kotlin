@@ -53,8 +53,8 @@ fun CardProdsSelected() {
 
     val games = remember { mutableStateListOf<GameItem>() }
     val totales = remember { mutableStateMapOf<Int, Int>() }
-    var iva by remember { mutableDoubleStateOf(0.0) }
-    var subtotal by remember { mutableDoubleStateOf(0.0) }
+    var iva by remember { mutableIntStateOf(0) }
+    var subtotal by remember { mutableIntStateOf(0) }
     var total by remember { mutableIntStateOf(0) }
 
 

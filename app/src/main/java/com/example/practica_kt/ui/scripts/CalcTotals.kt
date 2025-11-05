@@ -4,11 +4,11 @@ import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.runtime.snapshots.SnapshotStateMap
 
 
-fun CalcularIva(total: Int): Double {
-    return total * 0.19
+fun CalcularIva(total: Int): Int {
+    return total * 19 / 100
 }
 
-fun CalcularSubtotal(total: Int, iva: Double): Double {
+fun CalcularSubtotal(total: Int, iva: Int): Int {
     return total - iva
 }
 

@@ -1,9 +1,11 @@
 package com.example.practica_kt.ui.components.componentsHome
 
 import android.content.Context
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -13,6 +15,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.practica_kt.ui.components.componentsHome.componentsCard.ButtonCard
@@ -24,6 +27,7 @@ import com.example.practica_kt.ui.scripts.GameItem
 import com.example.practica_kt.ui.scripts.ReadJson
 import com.example.practica_kt.ui.scripts.getDrawableId
 import com.example.practica_kt.ui.scripts.parseJsonToList
+import com.example.practica_kt.ui.theme.CardBackground
 
 var GamesSelected = mutableListOf<Int>()
 @Composable
@@ -58,10 +62,12 @@ fun CustomCard(index: GameItem, context: Context) {
         modifier = Modifier
             .fillMaxWidth()
             .height(450.dp)
+            .background(Color.Transparent)
     ) {
         Column(
             modifier = Modifier
-                .fillMaxSize(),
+                .fillMaxHeight()
+                .background(CardBackground),
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
             ImageCard(poster)

@@ -2,8 +2,10 @@ package com.example.practica_kt.ui.components.general
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -23,39 +25,62 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.practica_kt.R
+import com.example.practica_kt.ui.theme.BackgroundTopBotBar
 
 @Composable
 fun TopBar(selectedChange: (String) -> Unit) {
-    Box(
+    Row (
         modifier = Modifier
             .fillMaxWidth()
-            .height(85.dp),
-        contentAlignment = Alignment.Center
+            .height(85.dp)
+            .background(BackgroundTopBotBar),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Box(
+
+        Button(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp, 0.dp)
+                .width(50.dp)
+                .height(50.dp),
+            contentPadding = PaddingValues(10.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent
+            ),
+            onClick = { println("Hola Mundo") }
+
         ) {
-            Button(
-                modifier = Modifier
-                    .width(50.dp)
-                    .height(50.dp),
-                contentPadding = PaddingValues(10.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.LightGray
-                ),
-                onClick = { selectedChange("pay") }
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.icon_shopping),
-                    contentDescription = "Carrito",
-                    modifier = Modifier.size(300.dp),
-                    contentScale = ContentScale.Fit
-                )
-            }
+
+            Icon(
+                painter = painterResource(id = R.drawable.bell_off),
+                contentDescription = "Bell",
+                tint = Color.White,
+                modifier = Modifier.size(25.dp)
+            )
         }
-        Text("Tienda Gamer")
+
+        Text(
+            "Tienda Gamer",
+            color = Color.White
+        )
+
+        Button(
+            modifier = Modifier
+                .width(50.dp)
+                .height(50.dp),
+            contentPadding = PaddingValues(10.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent
+            ),
+            onClick = { selectedChange("pay") }
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.shopping),
+                contentDescription = "Shopping",
+                tint = Color.White,
+                modifier = Modifier.size(27.dp)
+            )
+        }
+
     }
 }
 

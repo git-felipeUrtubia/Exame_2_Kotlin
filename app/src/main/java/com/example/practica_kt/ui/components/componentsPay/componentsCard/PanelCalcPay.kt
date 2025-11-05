@@ -12,10 +12,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.practica_kt.ui.scripts.formatNumberToCLP
 
 
 @Composable
-fun PanelCalcPay(total: Int, iva: Double, subtotal: Double) {
+fun PanelCalcPay(total: Int, iva: Int, subtotal: Int) {
+
+    val totalFormatCLP = formatNumberToCLP(total)
+    val ivaFormatCLP = formatNumberToCLP(iva)
+    val subtotalFormatCLP = formatNumberToCLP(subtotal)
+
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -41,7 +48,7 @@ fun PanelCalcPay(total: Int, iva: Double, subtotal: Double) {
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "$$iva",
+                text = "$$ivaFormatCLP",
                 fontWeight = FontWeight.Bold
             )
         }
@@ -55,7 +62,7 @@ fun PanelCalcPay(total: Int, iva: Double, subtotal: Double) {
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "$$subtotal",
+                text = "$$subtotalFormatCLP",
                 fontWeight = FontWeight.Bold
             )
         }
@@ -69,7 +76,7 @@ fun PanelCalcPay(total: Int, iva: Double, subtotal: Double) {
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "$$total",
+                text = "$$totalFormatCLP",
                 fontWeight = FontWeight.Bold
             )
         }
