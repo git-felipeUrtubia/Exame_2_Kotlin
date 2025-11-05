@@ -25,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
@@ -73,8 +74,16 @@ fun CardProdsSelected() {
     }else {
         LazyColumn (
             modifier = Modifier
-                .height(600.dp)
-                .padding(16.dp, 8.dp, 16.dp, 8.dp)
+                .height(530.dp)
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            Color(0xFF0F2027),
+                            Color(0xFF203A43),
+                            Color(0xFF2C5364)
+                        )
+                    )
+                )
         ) {
             items(games) { index ->
 
@@ -103,10 +112,12 @@ fun CardProdsSelected() {
 
         Column(
             modifier = Modifier.fillMaxWidth()
+
         ) {
             Box(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
+                    .height(220.dp)
                     .background(Color.White)
             ) {
                 Box(

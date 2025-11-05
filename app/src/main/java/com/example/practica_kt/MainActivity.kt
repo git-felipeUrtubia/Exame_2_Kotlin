@@ -12,6 +12,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.example.practica_kt.ui.components.AppContent
 import com.example.practica_kt.ui.components.componentsHome.GamesSelected
 import com.example.practica_kt.ui.components.general.BottomBar
@@ -26,6 +29,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Practica_KTTheme {
+                // Evita que Android reserve espacio para barras del sistema
+                WindowCompat.setDecorFitsSystemWindows(window, false)
+
+                // Controlador para ocultar las barras
+                val insetsController = WindowInsetsControllerCompat(window, window.decorView)
+                insetsController.systemBarsBehavior =
+                    WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+
+                // Oculta barra de estado + barra de navegación
+                insetsController.hide(WindowInsetsCompat.Type.systemBars())
+
                 AppContent()
             }
         }

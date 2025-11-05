@@ -13,3 +13,5 @@ val Pink40 = Color(0xFF7D5260)
 val BackgroundHome = Color(0xFFC9A66B)
 val BackgroundTopBotBar = Color(0xFF1E1E2E)
 val CardBackground = Color(0xFF1E1E2E)
+
+val ButtonsPay = Color(0xFF1E1E2E)

@@ -1,6 +1,5 @@
 package com.example.practica_kt.ui.components
 
-import android.app.Activity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -9,8 +8,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.core.view.WindowInsetsControllerCompat
 import com.example.practica_kt.ui.components.componentsHome.GamesSelected
 import com.example.practica_kt.ui.components.general.BottomBar
 import com.example.practica_kt.ui.components.general.TopBar
