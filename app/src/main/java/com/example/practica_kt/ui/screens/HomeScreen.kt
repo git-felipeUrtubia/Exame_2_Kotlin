@@ -12,13 +12,17 @@ import com.example.practica_kt.ui.components.componentsHome.CardList
 import com.example.practica_kt.ui.theme.BackgroundHome
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(exportChangeVisible: (Boolean) -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(BackgroundHome),
         contentAlignment = Alignment.Center
     ) {
-        CardList()
+        CardList(
+            exportChangeVisible = { isVisible ->
+                exportChangeVisible(isVisible)
+            }
+        )
     }
 }

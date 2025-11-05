@@ -14,6 +14,12 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -29,9 +35,10 @@ import com.example.practica_kt.ui.scripts.getDrawableId
 import com.example.practica_kt.ui.scripts.parseJsonToList
 import com.example.practica_kt.ui.theme.CardBackground
 
-var GamesSelected = mutableListOf<Int>()
+var GamesSelected = mutableStateListOf<Int>()
 @Composable
-fun CardList() {
+fun CardList(exportChangeVisible: (Boolean) -> Unit) {
+    var isVisible by remember { mutableStateOf(if (GamesSelected.isEmpty()) false else true) }
 
     val context = LocalContext.current
     val json = ReadJson(context)
@@ -45,19 +52,45 @@ fun CardList() {
             .padding(16.dp, 8.dp, 16.dp, 8.dp)
     ) {
         items(list) { index ->
-            CustomCard(index, context)
+            CustomCard(
+                index,
+                context,
+                isVisible,
+                exportChangeVisible = { isVisible ->
+                    exportChangeVisible(isVisible)
+                    println("VISIBLE (CardList): $isVisible")
+                },
+                onChangeIsVisible = { newIsVisible ->
+                    isVisible = newIsVisible
+                }
+            )
             Spacer(modifier = Modifier.height(16.dp))
         }
 
     }
 }
 @Composable
-fun CustomCard(index: GameItem, context: Context) {
+fun CustomCard(
+    index: GameItem,
+    context: Context,
+    isVisible: Boolean,
+    exportChangeVisible: (Boolean) -> Unit,
+    onChangeIsVisible: (Boolean) -> Unit
+) {
+
 
     val poster = getDrawableId(context, index.poster)
     val title = index.title
     val desc = index.desc
 
+
+    LaunchedEffect(isVisible) {
+        exportChangeVisible(isVisible)
+    }
+
+
+
+    println("VISIBLE (CustomCard): $isVisible")
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -74,9 +107,10 @@ fun CustomCard(index: GameItem, context: Context) {
             TitleCard(title)
             DescCard(desc)
             PrecioCard(index.precio)
-            ButtonCard(onClick = {
-                GamesSelected.add(index.id)
-            })
+            ButtonCard(
+                onClick = { GamesSelected.add(index.id) },
+                onChangeIsVisible = { onChangeIsVisible(true) }
+            )
         }
     }
 }

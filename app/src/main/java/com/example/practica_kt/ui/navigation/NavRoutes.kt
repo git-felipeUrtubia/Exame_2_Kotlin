@@ -14,7 +14,11 @@ import com.example.practica_kt.ui.screens.ProfileScreen
 
 
 @Composable
-fun NavRoutes(innerPadding: PaddingValues, selected: String) {
+fun NavRoutes(
+    innerPadding: PaddingValues,
+    selected: String,
+    exportChangeVisible: (Boolean) -> Unit
+) {
     Box(
         modifier = Modifier
             .padding(innerPadding)
@@ -23,7 +27,11 @@ fun NavRoutes(innerPadding: PaddingValues, selected: String) {
     ) {
 
         when (selected) {
-            ScreenKeys.HOME -> { HomeScreen() }
+            ScreenKeys.HOME -> { HomeScreen(
+                exportChangeVisible = {isVisible ->
+                   exportChangeVisible(isVisible)
+                }
+            ) }
             ScreenKeys.ABOUT -> { AboutScreen() }
             ScreenKeys.PROFILE -> { ProfileScreen() }
             ScreenKeys.PAY -> { PayScreen() }

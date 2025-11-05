@@ -4,7 +4,7 @@
     "title": "Call of Duty: Warzone",
     "desc": "Shooter battle royale en primera persona con partidas multijugador masivas.",
     "poster": "cof_warzone",
-    "precio": 1000,
+    "precio": 16990,
     "categoria": "Shooter"
   },
   {
@@ -12,7 +12,7 @@
     "title": "Elden Ring",
     "desc": "Juego de mundo abierto de fantasía oscura con combates desafiantes y exploración libre.",
     "poster": "elder_ring",
-    "precio": 1000,
+    "precio": 8990,
     "categoria": "RPG"
   },
   {
@@ -20,7 +20,7 @@
     "title": "God of War",
     "desc": "Aventura de acción donde Kratos viaja con su hijo Atreus en un mundo basado en la mitología nórdica.",
     "poster": "god_of_war",
-    "precio": 1000,
+    "precio": 53780,
     "categoria": "Aventura"
   },
   {
@@ -28,7 +28,7 @@
     "title": "Need for Speed: Most Wanted",
     "desc": "Juego de carreras callejeras donde debes ganar reputación y escapar de la policía.",
     "poster": "nfs_most_wanted",
-    "precio": 1000,
+    "precio": 3990,
     "categoria": "Carreras"
   },
   {
@@ -36,7 +36,7 @@
     "title": "Silent Hill Remake",
     "desc": "Survival horror psicológico con atmósfera oscura y elementos de terror clásico.",
     "poster": "silent_hill_remake",
-    "precio": 1000,
+    "precio": 20990,
     "categoria": "Terror"
   },
   {
@@ -44,7 +44,7 @@
     "title": "Star Wars Jedi",
     "desc": "Juego de acción y aventura en tercera persona ambientado en el universo de Star Wars.",
     "poster": "star_wars_jedi",
-    "precio": 1000,
+    "precio": 2000,
     "categoria": "Acción"
   }
 ]
