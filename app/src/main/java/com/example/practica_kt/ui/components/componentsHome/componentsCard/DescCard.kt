@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun DescCard(desc: String) {
@@ -17,7 +18,8 @@ fun DescCard(desc: String) {
     ) {
         Text(
             text = desc,
-            color = Color.White
+            color = Color.White,
+            fontSize = 14.sp
         )
     }
 }

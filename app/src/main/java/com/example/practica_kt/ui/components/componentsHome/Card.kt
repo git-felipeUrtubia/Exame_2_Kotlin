@@ -11,6 +11,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
@@ -25,6 +28,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.practica_kt.ui.components.componentsHome.componentsCard.ButtonCard
+import com.example.practica_kt.ui.components.componentsHome.componentsCard.CatCard
 import com.example.practica_kt.ui.components.componentsHome.componentsCard.DescCard
 import com.example.practica_kt.ui.components.componentsHome.componentsCard.ImageCard
 import com.example.practica_kt.ui.components.componentsHome.componentsCard.PrecioCard
@@ -45,13 +49,19 @@ fun CardList(exportChangeVisible: (Boolean) -> Unit) {
     val list = parseJsonToList(json)
 
 
-    LazyColumn (
+    LazyVerticalGrid (
+        columns = GridCells.Fixed(2),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+
         modifier = Modifier
             .fillMaxSize()
             .height(300.dp)
             .padding(16.dp, 8.dp, 16.dp, 8.dp)
     ) {
         items(list) { index ->
+
+
             CustomCard(
                 index,
                 context,
@@ -94,7 +104,7 @@ fun CustomCard(
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(450.dp)
+            .height(300.dp)
             .background(Color.Transparent)
     ) {
         Column(
@@ -105,7 +115,7 @@ fun CustomCard(
         ) {
             ImageCard(poster)
             TitleCard(title)
-            DescCard(desc)
+            CatCard(index.categoria)
             PrecioCard(index.precio)
             ButtonCard(
                 onClick = { GamesSelected.add(index.id) },
