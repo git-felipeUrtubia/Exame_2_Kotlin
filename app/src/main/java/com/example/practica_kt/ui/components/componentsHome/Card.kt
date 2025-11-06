@@ -42,8 +42,7 @@ fun CardList(exportChangeVisible: (Boolean) -> Unit) {
 
     val context = LocalContext.current
     val json = ReadJson(context)
-    val list = parseJsonToList(json)
-
+    val listGameItem = parseJsonToList(json)
 
     LazyColumn (
         modifier = Modifier
@@ -51,14 +50,13 @@ fun CardList(exportChangeVisible: (Boolean) -> Unit) {
             .height(300.dp)
             .padding(16.dp, 8.dp, 16.dp, 8.dp)
     ) {
-        items(list) { index ->
+        items(listGameItem) { index ->
             CustomCard(
                 index,
                 context,
                 isVisible,
                 exportChangeVisible = { isVisible ->
                     exportChangeVisible(isVisible)
-                    println("VISIBLE (CardList): $isVisible")
                 },
                 onChangeIsVisible = { newIsVisible ->
                     isVisible = newIsVisible
@@ -78,17 +76,13 @@ fun CustomCard(
     onChangeIsVisible: (Boolean) -> Unit
 ) {
 
-
     val poster = getDrawableId(context, index.poster)
     val title = index.title
     val desc = index.desc
 
-
     LaunchedEffect(isVisible) {
         exportChangeVisible(isVisible)
     }
-
-
 
     println("VISIBLE (CustomCard): $isVisible")
     Card(
