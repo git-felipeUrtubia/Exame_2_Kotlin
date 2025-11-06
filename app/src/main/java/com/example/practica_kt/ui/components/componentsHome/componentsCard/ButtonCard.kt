@@ -42,7 +42,7 @@ fun ButtonCard(
         Button(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(44.dp, 0.dp),
+                .padding(16.dp, 0.dp),
             border = BorderStroke(1.2.dp, Color.White),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.Transparent
@@ -58,7 +58,7 @@ fun ButtonCard(
             ) {
                 Text(
                     "Agregar",
-                    fontSize = 17.sp
+                    fontSize = 13.sp
                 )
 
                 Spacer(modifier = Modifier.width(8.dp))
@@ -67,7 +67,7 @@ fun ButtonCard(
                     painter = painterResource(id = R.drawable.shoppingadd),
                     contentDescription = "Bell",
                     tint = Color.White,
-                    modifier = Modifier.size(19.dp)
+                    modifier = Modifier.size(15.dp)
                 )
             }
         }
